@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools">
+
+<data>
+
+    <import type="android.view.View" />
+
+    <variable
+        name="callback"
+        type="com.app.simplesearch.callback.ActionCallback" />
+
+
+    <variable
+        name="listingAdapter"
+        type="com.app.simplesearch.adapter.ListingAdapter" />
+
+
+</data>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/auth_background" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/layoutNoInternet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/auth_background"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:visibility="gone">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:visibility="visible"
+                    android:gravity="center"
+                    style="@style/TextViewBoldStyle"
+                    android:layout_width="match_parent"
+                    android:textSize="@dimen/_15ssp"
+                    android:textColor="@color/colorRedShade1"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_height="match_parent"
+                    android:maxLines="2"
+                    android:text="No Internet Connection" />
+
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btnTryAgain"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:background="@color/colorRedShade1"
+                android:fontFamily="@font/poppins_regular"
+                android:onClick="@{(v) -> callback.onClick(v)}"
+                android:text="Try Again"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+
+                android:paddingLeft="@dimen/_10sdp"
+                android:paddingRight="@dimen/_10sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:background="@color/colorRedShade1"
+                android:layout_height="@dimen/_100sdp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/drawable_search_background"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_24sdp"
+                        android:layout_gravity="center_vertical"
+                        android:padding="5dp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:src="@drawable/ic_search" />
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="0.8"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:layout_toStartOf="@id/btnclear"
+                            android:id="@+id/edtSearch"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:ellipsize="end"
+                            android:hint="Search..."
+                            android:textColorHint="@color/colorWhite"
+                            android:textColor="@color/colorWhite"
+                            android:inputType="textVisiblePassword"
+                            android:imeOptions="actionSearch"
+                            android:padding="@dimen/_10sdp"
+                            android:singleLine="true"
+                            android:visibility="visible" />
+
+                        <ImageView
+                            android:layout_alignParentEnd="true"
+                            android:id="@+id/btnclear"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:layout_centerVertical="true"
+                            android:layout_width="@dimen/_24sdp"
+                            android:layout_height="@dimen/_24sdp"
+                            android:layout_gravity="center_vertical"
+                            android:padding="5dp"
+                            android:visibility="gone"
+                            android:src="@drawable/ic_close" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:id="@+id/tvResultCount"
+                    style="@style/TextViewStyleSubTitle"
+                    android:layout_width="wrap_content"
+                    android:textSize="@dimen/_8sdp"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    tools:text="" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/_10sdp"
+                android:paddingRight="@dimen/_10sdp"
+                android:paddingTop="@dimen/_10sdp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvResults"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:setAdapter="@{listingAdapter}"
+                    tools:listitem="@layout/item_rv_items" />
+                <ProgressBar
+                    android:id="@+id/loader"
+                    android:visibility="gone"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:outlineAmbientShadowColor="@color/colorBlackShade1"/>
+
+
+
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmerLayout"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"
+                    android:layout_height="match_parent"
+                    tools:ignore="MissingConstraints">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!--add  several shimmer placeholder layout -->
+
+                        <include layout="@layout/item_rv_placeholder"></include>
+                        <include layout="@layout/item_rv_placeholder"></include>
+                        <include layout="@layout/item_rv_placeholder"></include>
+                        <include layout="@layout/item_rv_placeholder"></include>
+                        <include layout="@layout/item_rv_placeholder"></include>
+                        <include layout="@layout/item_rv_placeholder"></include>
+                        <include layout="@layout/item_rv_placeholder"></include>
+                        <include layout="@layout/item_rv_placeholder"></include>
+                        <include layout="@layout/item_rv_placeholder"></include>
+                        <include layout="@layout/item_rv_placeholder"></include>
+                        <include layout="@layout/item_rv_placeholder"></include>
+                        <include layout="@layout/item_rv_placeholder"></include>
+                        <include layout="@layout/item_rv_placeholder"></include>
+                        <include layout="@layout/item_rv_placeholder"></include>
+
+
+                    </LinearLayout>
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+                <TextView
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:id="@+id/tvNoData"
+                    style="@style/TextViewBoldStyle"
+                    android:layout_width="match_parent"
+                    android:textSize="@dimen/_15sdp"
+                    android:textColor="@color/colorRedShade1"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_height="match_parent"
+                    android:text="No Result Found!" />
+
+                <TextView
+                    android:visibility="visible"
+                    android:gravity="center"
+                    android:id="@+id/tvSearchData"
+                    style="@style/TextViewBoldStyle"
+                    android:layout_width="match_parent"
+                    android:textSize="@dimen/_15sdp"
+                    android:paddingHorizontal="@dimen/_20sdp"
+                    android:textColor="@color/colorRedShade1"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:maxLines="2"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_height="match_parent"
+                    android:text="Search everything in here by typing keywords" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
+</layout>
+

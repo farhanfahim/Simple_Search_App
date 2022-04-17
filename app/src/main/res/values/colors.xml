@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorTextColor">#494949</color>
+    <color name="colorTextColor2">#7A869A</color>
+    <color name="colorGray">#F0F1F3</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorBlackShade1">#141414</color>
+    <color name="colorlightGray">#f1f1f1</color>
+    <color name="colorSeparator1">#C1C7D0</color>
+    <color name="colorLightGrey">#C6C4C1</color>
+    <color name="colorDispatched">#FFCA5F</color>
+
+    <color name="colorRedShade1">#c03333</color>
+    <color name="colorRedShade2">#A12626</color>
+</resources>

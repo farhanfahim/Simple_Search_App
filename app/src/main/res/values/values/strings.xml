@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Fake Products</string>
+    <string name="label_hint">Search products</string>
+    <string name="label_categories">Shop By Category</string>
+    <string name="label_product">All Products</string>
+    <string name="label_product_detail">Product Detail</string>
+    <string name="label_cart">My Cart</string>
+    <string name="label_add_to_cart">Add to Cart</string>
+    <string name="label_checkout">Checkout</string>
+    <string name="label_start_shopping">Start Shopping</string>
+    <string name="label_description">Description</string>
+    <string name="label_loader">Loading Products…</string>
+</resources>
